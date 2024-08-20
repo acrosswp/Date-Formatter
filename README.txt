@@ -11,30 +11,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+Enhance the user experience on your BuddyBoss (or BuddyPress) platform by displaying actual dates instead of relative timestamps like "2 weeks ago" or "3 days ago." 
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+The Date Formatter for BuddyBoss (or BuddyPress) plugin provides a simple yet powerful solution to convert these relative times into precise, readable dates, making it easier for users to understand when activities, posts, and comments were made.
 
-A few notes about the sections above:
+Key Features:
 
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
+Accurate Date Display: Replace vague time references with actual dates in formats like "August 17, 2024" or "17/08/2024" based on your preferences.
+Customizable Date Formats: Choose from a variety of date formats or create your own to match your site's design and user expectations.
+Seamless Integration: Works effortlessly with both BuddyBoss and BuddyPress, ensuring compatibility across the platform.
+Easy Setup: Simply activate the plugin, and it will automatically update the date formats across your activity streams and comment sections.
+Lightweight and Efficient: Designed to have minimal impact on your site's performance while delivering maximum clarity.
 
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
+Why Use Date Formatter for BuddyBoss (or BuddyPress)?
 
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+If you're looking to make your community platform more user-friendly and professional, Date Formatter for BuddyBoss (or BuddyPress) is the perfect plugin for you. By providing clear and precise timestamps, it helps improve user engagement and enhances the overall readability of your site’s content.
 
 == Installation ==
 

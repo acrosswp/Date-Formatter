@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Date Formatter
  * Plugin URI:        https://github.com/WPBoilerplate/date-formatter
- * Description:       Date Formatter by WPBoilerplate
+ * Description:       Enhance the user experience on your BuddyBoss (or BuddyPress) platform by displaying actual dates instead of relative timestamps like "2 weeks ago" or "3 days ago." 
  * Version:           1.0.0
  * Author:            WPBoilerplate
  * Author URI:        https://github.com/WPBoilerplate/date-formatter
