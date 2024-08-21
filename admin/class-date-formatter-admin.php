@@ -102,7 +102,7 @@ class Date_Formatter_Admin {
 
 		// wp_enqueue_style( $this->plugin_name, DATE_FORMATTER_PLUGIN_URL . 'build/css/backend.css', $this->css_asset_file['dependencies'], $this->css_asset_file['version'], 'all' );
 
-		// wp_enqueue_style( $this->plugin_name . '-backend-app', DATE_FORMATTER_PLUGIN_URL . 'build/js/backend.css', array( 'wp-components' ), $this->css_asset_file['version'], 'all' );
+		wp_enqueue_style( $this->plugin_name . '-backend-app', DATE_FORMATTER_PLUGIN_URL . 'build/js/style-backend.css', $this->css_asset_file['dependencies'], $this->css_asset_file['version'], 'all' );
 
 	}
 
