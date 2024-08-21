@@ -309,7 +309,9 @@ final class Date_Formatter {
 
 		$plugin_public = new Date_Formatter_Public();
 
-		$this->loader->add_action( 'bp_init', $plugin_public, 'load_code', 1000 );
+		$this->loader->add_action( 'after_setup_theme', $plugin_public, 'load_code', 1000 );
+		
+		$this->loader->add_action( 'after_setup_theme', $plugin_public, 'load_code', 1000 );
 	}
 
 	/**
@@ -352,4 +354,38 @@ final class Date_Formatter {
 		return $this->version;
 	}
 
+	/**
+	 * Check if the date formatter is enble or not.
+	 */
+	public function get_date_formatter_enable() {
+		return get_option( 'date_formatter_show_formats', false );
+	}
+
+	/**
+	 * Check if the date formatter time setting
+	 */
+	public function get_date_format() {
+		return get_option( 'date_formatter_date_format', $this->get_site_date_format() );
+	}
+
+	/**
+	 * Check if the date formatter time setting
+	 */
+	public function get_time_format() {
+		return get_option( 'date_formatter_time_format', $this->get_site_time_format() );
+	}
+
+	/**
+	 * get the site date format
+	 */
+	public function get_site_date_format () {
+		return get_option( 'date_format' );
+	}
+
+	/**
+	 * get the site time format
+	 */
+	public function get_site_time_format () {
+		return get_option( 'time_format' );
+	}
 }

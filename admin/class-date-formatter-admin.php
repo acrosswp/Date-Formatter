@@ -175,7 +175,7 @@ class Date_Formatter_Admin {
 				'description'		=> __( 'Date Format', 'date-formatter' ),
 				'sanitize_callback'	=> 'sanitize_text_field',
 				'show_in_rest'      => true,
-				'default'      		=> get_option( 'date_format' ),
+				'default'      		=> Date_Formatter::instance()->get_site_date_format(),
 			)
 		);
 
@@ -187,7 +187,7 @@ class Date_Formatter_Admin {
 				'description' 		=> __( 'Time Format', 'date-formatter' ),
 				'sanitize_callback'	=> 'sanitize_text_field',
 				'show_in_rest'      => true,
-				'default'      		=> get_option( 'time_format' ),
+				'default'      		=> Date_Formatter::instance()->get_site_time_format(),
 			)
 		);
 	}

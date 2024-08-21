@@ -41,9 +41,20 @@ class Date_Formatter_Public {
 	 */
 	public function load_code() {
 
-		
+		if ( ! Date_Formatter::instance()->get_date_formatter_enable() ) {
+			return;
+		}
+
+		$date_format = Date_Formatter::instance()->get_date_format();
+		if ( empty( $date_format ) ) {
+			return;
+		}
+
+		$time_format = Date_Formatter::instance()->get_time_format();
+		if ( empty( $time_format ) ) {
+			return;
+		}
 
 		wp_deregister_script( 'bp-livestamp' );
 	}
-
 }
