@@ -39,22 +39,27 @@ class Date_Formatter_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function load_code() {
-
-		if ( ! Date_Formatter::instance()->get_date_formatter_enable() ) {
-			return;
-		}
-
-		$date_format = Date_Formatter::instance()->get_date_format();
-		if ( empty( $date_format ) ) {
-			return;
-		}
-
-		$time_format = Date_Formatter::instance()->get_time_format();
-		if ( empty( $time_format ) ) {
-			return;
-		}
-
+	public function enqueue_scripts() {
 		wp_deregister_script( 'bp-livestamp' );
 	}
+
+	public function before_activity_entry() {
+		add_filter( 'bp_core_time_since_pre', array( $this, 'time_since_pre' ), 100, 2 );
+	}
+
+	public function after_activity_entry() {
+		remove_filter( 'bp_core_time_since_pre', array( $this, 'time_since_pre' ), 100 );
+	}
+
+	/**
+	 * Return the date and time to show
+	 */
+	public function time_since_pre( $return, $older_date ) {
+
+		// var_dump( "test 3" );
+		$format = sprintf( '%s %s', Date_Formatter::instance()->get_date_format(), Date_Formatter::instance()->get_time_format() );
+
+		return date_i18n( $format, strtotime( $older_date ) );
+	}
+
 }

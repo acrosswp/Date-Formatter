@@ -38,27 +38,6 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'DATE_FORMATTER_FILES', __FILE__ );
 
 /**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-date-formatter-activator.php
- */
-function date_formatter_activate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-date-formatter-activator.php';
-	Date_Formatter_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-date-formatter-deactivator.php
- */
-function date_formatter_deactivate() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-date-formatter-deactivator.php';
-	Date_Formatter_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'date_formatter_activate' );
-register_deactivation_hook( __FILE__, 'date_formatter_deactivate' );
-
-/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */

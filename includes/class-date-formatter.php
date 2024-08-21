@@ -192,8 +192,29 @@ final class Date_Formatter {
 		/**
 		 * Add composer file
 		 */
-		if ( file_exists( DATE_FORMATTER_PLUGIN_PATH . 'vendor/autoload.php' ) ) {
-			require_once( DATE_FORMATTER_PLUGIN_PATH . 'vendor/autoload.php' );
+		require_once( DATE_FORMATTER_PLUGIN_PATH . 'vendor/autoload.php' );
+
+		/**
+		 * For Plugin to check if BuddyBoss Platform plugin is active or not
+		 */
+		if ( class_exists( 'WPBoilerplate_BuddyBoss_Platform_Dependency' ) ) {
+			new WPBoilerplate_BuddyBoss_Platform_Dependency( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG, COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE, array( 'activity' ) );
+		}
+
+		/**
+		 * For Plugin Update via Github
+		 */
+		if ( class_exists( 'WPBoilerplate_Updater_Checker_Github' ) ) {
+
+			$package = array(
+				'repo' 		        => 'https://github.com/acrosswp/date-formatter',
+				'file_path' 		=> DATE_FORMATTER_PLUGIN_FILE,
+				'name_slug'			=> DATE_FORMATTER_PLUGIN_NAME_SLUG,
+				'release_branch' 	=> 'main',
+				'release-assets' 	=> false
+			);
+
+			new WPBoilerplate_Updater_Checker_Github( $package );
 		}
 	}
 
@@ -309,9 +330,18 @@ final class Date_Formatter {
 
 		$plugin_public = new Date_Formatter_Public();
 
-		$this->loader->add_action( 'after_setup_theme', $plugin_public, 'load_code', 1000 );
-		
-		$this->loader->add_action( 'after_setup_theme', $plugin_public, 'load_code', 1000 );
+		/**
+		 * Check if the setting is enable
+		 */
+		if (  $this->get_date_formatter_enable() ) {
+
+			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts', 1000 );
+
+			$this->loader->add_action( 'bp_before_activity_entry', $plugin_public, 'before_activity_entry', 1 );
+
+			$this->loader->add_action( 'bp_after_activity_entry', $plugin_public, 'after_activity_entry', 1 );
+		}
+
 	}
 
 	/**
@@ -352,6 +382,30 @@ final class Date_Formatter {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Register the JavaScript for the public-facing side of the site.
+	 *
+	 * @since    1.0.0
+	 */
+	public function run_date_formatting() {
+
+		if ( ! $this->get_date_formatter_enable() ) {
+			return false;
+		}
+
+		$date_format = $this->get_date_format();
+		if ( empty( $date_format ) ) {
+			return false;
+		}
+
+		$time_format = $this->get_time_format();
+		if ( empty( $time_format ) ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
