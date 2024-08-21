@@ -16,13 +16,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/format.mjs");
-
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/format.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 
 // Apply the nonce middleware to secure API requests
+
 _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default().use(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_1___default().createNonceMiddleware(wpApiSettings.nonce));
 function App() {
   const [showFormats, setShowFormats] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
@@ -79,80 +81,119 @@ function App() {
     const dateFormat = formatMap[formatStr] || formatStr;
     try {
       // Return the formatted date
-      return (0,date_fns__WEBPACK_IMPORTED_MODULE_2__.format)(date, dateFormat);
+      return (0,date_fns__WEBPACK_IMPORTED_MODULE_3__.format)(date, dateFormat);
     } catch (error) {
       console.error('Error formatting date:', error);
       return date.toString(); // Fallback if formatting fails
     }
   };
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Date and Time Settings"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: true,
-    checked: showFormats === true,
-    onChange: () => setShowFormats(true)
-  }), "Enable Date and Time Format"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: false,
-    checked: showFormats === false,
-    onChange: () => setShowFormats(false)
-  }), "Disable Date and Time Format")), showFormats && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Date Format"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "F j, Y",
-    checked: dateFormat === 'F j, Y',
-    onChange: e => setDateFormat(e.target.value)
-  }), formatDate(now, 'F j, Y')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "Y-m-d",
-    checked: dateFormat === 'Y-m-d',
-    onChange: e => setDateFormat(e.target.value)
-  }), formatDate(now, 'Y-m-d')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "m/d/Y",
-    checked: dateFormat === 'm/d/Y',
-    onChange: e => setDateFormat(e.target.value)
-  }), formatDate(now, 'm/d/Y')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "d/m/Y",
-    checked: dateFormat === 'd/m/Y',
-    onChange: e => setDateFormat(e.target.value)
-  }), formatDate(now, 'd/m/Y')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "custom",
-    checked: ['F j, Y', 'Y-m-d', 'm/d/Y', 'd/m/Y'].indexOf(dateFormat) === -1,
-    onChange: () => setDateFormat('')
-  }), "Custom:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "text",
-    value: dateFormat,
-    onChange: e => setDateFormat(e.target.value),
-    disabled: ['F j, Y', 'Y-m-d', 'm/d/Y', 'd/m/Y'].includes(dateFormat)
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Time Format"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "g:i a",
-    checked: timeFormat === 'g:i a',
-    onChange: e => setTimeFormat(e.target.value)
-  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__.format)(now, 'h:mm a')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "g:i A",
-    checked: timeFormat === 'g:i A',
-    onChange: e => setTimeFormat(e.target.value)
-  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__.format)(now, 'h:mm a')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "H:i",
-    checked: timeFormat === 'H:i',
-    onChange: e => setTimeFormat(e.target.value)
-  }), (0,date_fns__WEBPACK_IMPORTED_MODULE_2__.format)(now, 'HH:mm')), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "radio",
-    value: "custom",
-    checked: ['g:i a', 'g:i A', 'H:i'].indexOf(timeFormat) === -1,
-    onChange: () => setTimeFormat('')
-  }), "Custom:", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "text",
-    value: timeFormat,
-    onChange: e => setTimeFormat(e.target.value),
-    disabled: ['g:i a', 'g:i A', 'H:i'].includes(timeFormat)
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    onClick: saveSettings
-  }, "Save Settings"));
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: "Date and Time Settings"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "radio",
+          value: true,
+          checked: showFormats === true,
+          onChange: () => setShowFormats(true)
+        }), "Enable Date and Time Format"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "radio",
+          value: false,
+          checked: showFormats === false,
+          onChange: () => setShowFormats(false)
+        }), "Disable Date and Time Format"]
+      })]
+    }), showFormats && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          children: "Date Format"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "F j, Y",
+            checked: dateFormat === 'F j, Y',
+            onChange: e => setDateFormat(e.target.value)
+          }), formatDate(now, 'F j, Y')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "Y-m-d",
+            checked: dateFormat === 'Y-m-d',
+            onChange: e => setDateFormat(e.target.value)
+          }), formatDate(now, 'Y-m-d')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "m/d/Y",
+            checked: dateFormat === 'm/d/Y',
+            onChange: e => setDateFormat(e.target.value)
+          }), formatDate(now, 'm/d/Y')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "d/m/Y",
+            checked: dateFormat === 'd/m/Y',
+            onChange: e => setDateFormat(e.target.value)
+          }), formatDate(now, 'd/m/Y')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "custom",
+            checked: ['F j, Y', 'Y-m-d', 'm/d/Y', 'd/m/Y'].indexOf(dateFormat) === -1,
+            onChange: () => setDateFormat('')
+          }), "Custom:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: dateFormat,
+            onChange: e => setDateFormat(e.target.value),
+            disabled: ['F j, Y', 'Y-m-d', 'm/d/Y', 'd/m/Y'].includes(dateFormat)
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          children: "Time Format"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "g:i a",
+            checked: timeFormat === 'g:i a',
+            onChange: e => setTimeFormat(e.target.value)
+          }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__.format)(now, 'h:mm a')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "g:i A",
+            checked: timeFormat === 'g:i A',
+            onChange: e => setTimeFormat(e.target.value)
+          }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__.format)(now, 'h:mm a')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "H:i",
+            checked: timeFormat === 'H:i',
+            onChange: e => setTimeFormat(e.target.value)
+          }), (0,date_fns__WEBPACK_IMPORTED_MODULE_3__.format)(now, 'HH:mm')]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "radio",
+            value: "custom",
+            checked: ['g:i a', 'g:i A', 'H:i'].indexOf(timeFormat) === -1,
+            onChange: () => setTimeFormat('')
+          }), "Custom:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            type: "text",
+            value: timeFormat,
+            onChange: e => setTimeFormat(e.target.value),
+            disabled: ['g:i a', 'g:i A', 'H:i'].includes(timeFormat)
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      onClick: saveSettings,
+      children: "Save Settings"
+    })]
+  });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
 
@@ -165,6 +206,16 @@ function App() {
 /***/ ((module) => {
 
 module.exports = window["React"];
+
+/***/ }),
+
+/***/ "react/jsx-runtime":
+/*!**********************************!*\
+  !*** external "ReactJSXRuntime" ***!
+  \**********************************/
+/***/ ((module) => {
+
+module.exports = window["ReactJSXRuntime"];
 
 /***/ }),
 
@@ -3882,18 +3933,18 @@ var __webpack_exports__ = {};
   !*** ./src/js/backend /index.js ***!
   \**********************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app */ "./src/js/backend /app.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app */ "./src/js/backend /app.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 window.addEventListener('load', function () {
   const container = document.getElementById('date-formatter-container');
-  const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-  root.render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_app__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  const root = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createRoot)(container);
+  root.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_app__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
 }, false);
 /******/ })()
 ;
