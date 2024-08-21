@@ -333,7 +333,7 @@ final class Date_Formatter {
 		/**
 		 * Check if the setting is enable
 		 */
-		if (  $this->get_date_formatter_enable() ) {
+		if ( $this->run_date_formatting() ) {
 
 			$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts', 1000 );
 
@@ -391,6 +391,7 @@ final class Date_Formatter {
 	 */
 	public function run_date_formatting() {
 
+
 		if ( ! $this->get_date_formatter_enable() ) {
 			return false;
 		}
@@ -419,14 +420,14 @@ final class Date_Formatter {
 	 * Check if the date formatter time setting
 	 */
 	public function get_date_format() {
-		return get_option( 'date_formatter_date_format', $this->get_site_date_format() );
+		return get_option( 'date_formatter_date_format', false );
 	}
 
 	/**
 	 * Check if the date formatter time setting
 	 */
 	public function get_time_format() {
-		return get_option( 'date_formatter_time_format', $this->get_site_time_format() );
+		return get_option( 'date_formatter_time_format', false );
 	}
 
 	/**
