@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://github.com/WPBoilerplate/date-formatter
+ * @link       https://github.com/acrosswp/date-formatter
  * @since      1.0.0
  *
  * @package    Date_Formatter

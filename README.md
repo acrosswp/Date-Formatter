@@ -50,7 +50,7 @@ inside the `load_composer_dependencies` method at the end
 if ( class_exists( 'WPBoilerplate_Updater_Checker_Github' ) ) {
 
 	$package = array(
-		'repo' 		        => 'https://github.com/WPBoilerplate/date-formatter',
+		'repo' 		        => 'https://github.com/acrosswp/date-formatter',
 		'file_path' 		=> DATE_FORMATTER_PLUGIN_FILE,
 		'plugin_name_slug'	=> DATE_FORMATTER_PLUGIN_NAME_SLUG,
 		'release_branch' 	=> 'main'

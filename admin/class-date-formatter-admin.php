@@ -5,7 +5,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://github.com/WPBoilerplate/date-formatter
+ * @link       https://github.com/acrosswp/date-formatter
  * @since      1.0.0
  *
  * @package    Date_Formatter

@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'wpboilerplate/date-formatter',
+        'name' => 'acrosswp/date-formatter',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => '0a31b19e00aa4c117b705a2641f8ab9068c2cab5',
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'wpboilerplate/date-formatter' => array(
+        'acrosswp/date-formatter' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => '0a31b19e00aa4c117b705a2641f8ab9068c2cab5',

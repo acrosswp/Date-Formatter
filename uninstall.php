@@ -17,9 +17,9 @@
  * general skeleton and outline for how the file should work.
  *
  * For more information, see the following discussion:
- * https://github.com/wpboilerplate/date-formatter
+ * https://github.com/acrosswp/date-formatter
  *
- * @link       https://github.com/WPBoilerplate/date-formatter
+ * @link       https://github.com/acrosswp/date-formatter
  * @since      1.0.0
  *
  * @package    Date_Formatter

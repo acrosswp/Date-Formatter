@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://github.com/WPBoilerplate/date-formatter
+ * @link              https://github.com/acrosswp/date-formatter
  * @since             1.0.0
  * @package           Date_Formatter
  *
  * @wordpress-plugin
  * Plugin Name:       Date Formatter for BuddyBoss
- * Plugin URI:        https://github.com/WPBoilerplate/date-formatter
+ * Plugin URI:        https://github.com/acrosswp/date-formatter
  * Description:       Enhance the user experience on your BuddyBoss (or BuddyPress) platform by displaying actual dates instead of relative timestamps like "2 weeks ago" or "3 days ago." 
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            WPBoilerplate
- * Author URI:        https://github.com/WPBoilerplate/date-formatter
+ * Author URI:        https://github.com/acrosswp/date-formatter
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       date-formatter

@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://github.com/WPBoilerplate/date-formatter
+ * @link       https://github.com/acrosswp/date-formatter
  * @since      1.0.0
  *
  * @package    Date_Formatter

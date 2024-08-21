@@ -1,11 +1,11 @@
 === Date Formatter ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://github.com/WPBoilerplate/date-formatter
+Contributors: acrosswp. raftaar1191
+Donate link: https://github.com/acrosswp/date-formatter
 Tags: comments, spam
 Requires at least: 4.9.1
 Tested up to: 6.2.2
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,7 +57,10 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Testing the github update
+
+= 1.0.0 =
 * A change since the previous version.
 * Another change.
 
