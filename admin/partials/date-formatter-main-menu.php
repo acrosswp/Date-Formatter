@@ -71,33 +71,7 @@ class Date_Formatter_Main_Menu {
 	 */
 	public function about() {
 		?>
-		<div class="date-formatter-container">
-		</div>
+		<div id="date-formatter-container" class="date-formatter-container"></div>
 		<?php
-	}
-
-	/**
-	 * Add Settings link to plugins area.
-	 *
-	 * @since    1.0.0
-	 *
-	 * @param array  $links Links array in which we would prepend our link.
-	 * @param string $file  Current plugin basename.
-	 * @return array Processed links.
-	 */
-	public function plugin_action_links( $links, $file ) {
-
-		// Return normal links if not BuddyPress.
-		if ( DATE_FORMATTER_PLUGIN_BASENAME !== $file ) {
-			return $links;
-		}
-
-		// Add a few links to the existing links array.
-		return array_merge(
-			$links,
-			array(
-				'about'	=> sprintf( '<a href="%sadmin.php?page=%s">%s</a>', admin_url(), 'date-formatter', esc_html__( 'About', 'date-formatter' ) ),
-			)
-		);
 	}
 }

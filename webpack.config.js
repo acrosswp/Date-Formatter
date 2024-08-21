@@ -33,9 +33,7 @@ module.exports = {
 		entry: {
 			...getWebpackEntryPoints(),
 			...blockStylesheets(),
-			'js/frontend':  path.resolve( process.cwd(), 'src/js',   'frontend.js'   ),
-			'js/backend':  path.resolve( process.cwd(), 'src/js',   'backend.js'   ),
-			'css/frontend': path.resolve( process.cwd(), 'src/scss', 'frontend.scss' ),
+			'js/backend':  path.resolve( process.cwd(), 'src/js/backend ', 'index.js' ),
 			'css/backend': path.resolve( process.cwd(), 'src/scss', 'backend.scss' )
 		},
 		plugins: [

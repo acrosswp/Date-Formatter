@@ -71,31 +71,6 @@ class Date_Formatter_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
-		$this->js_asset_file	= include( DATE_FORMATTER_PLUGIN_PATH . 'build/js/frontend.asset.php' );
-		$this->css_asset_file	= include( DATE_FORMATTER_PLUGIN_PATH . 'build/css/frontend.asset.php' );
-	}
-
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_styles() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Date_Formatter_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Date_Formatter_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_style( $this->plugin_name, DATE_FORMATTER_PLUGIN_URL . 'build/css/frontend.css', $this->css_asset_file['dependencies'], $this->css_asset_file['version'], 'all' );
-
 	}
 
 	/**
@@ -104,21 +79,7 @@ class Date_Formatter_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Date_Formatter_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Date_Formatter_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, DATE_FORMATTER_PLUGIN_URL . 'build/js/frontend.js', $this->js_asset_file['dependencies'], $this->js_asset_file['version'], false );
-
+		wp_deregister_script( 'bp-livestamp' );
 	}
 
 }

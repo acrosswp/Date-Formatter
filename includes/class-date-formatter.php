@@ -279,19 +279,23 @@ final class Date_Formatter {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-		
+
 		$plugin_admin = new Date_Formatter_Admin( $this->get_plugin_name(), $this->get_version() );
-		
+
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		
+
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_custom_option', 1000 );
+
+		$this->loader->add_action( 'rest_api_init', $plugin_admin, 'register_custom_option', 1000 );
+
+		$this->loader->add_action( 'plugin_action_links', $plugin_admin, 'plugin_action_links', 1000, 2 );
 		/**
 		 * Add the Plugin Main Menu
 		 */
 		$main_menu = new Date_Formatter_Main_Menu( $this->get_plugin_name(), $this->get_version() );
 		$this->loader->add_action( 'admin_menu', $main_menu, 'main_menu' );
-		$this->loader->add_action( 'plugin_action_links', $main_menu, 'plugin_action_links', 1000, 2 );
 	}
 
 	/**
@@ -305,8 +309,6 @@ final class Date_Formatter {
 
 		$plugin_public = new Date_Formatter_Public( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 	}

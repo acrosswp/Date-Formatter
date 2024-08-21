@@ -81,7 +81,12 @@ class Date_Formatter_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles( $hook ) {
+
+		// Ensure we're only loading our scripts on our custom admin page
+		if ( 'toplevel_page_date-formatter' !== $hook ) {
+			return;
+		}
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -95,7 +100,9 @@ class Date_Formatter_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, DATE_FORMATTER_PLUGIN_URL . 'build/css/backend.css', $this->css_asset_file['dependencies'], $this->css_asset_file['version'], 'all' );
+		// wp_enqueue_style( $this->plugin_name, DATE_FORMATTER_PLUGIN_URL . 'build/css/backend.css', $this->css_asset_file['dependencies'], $this->css_asset_file['version'], 'all' );
+
+		// wp_enqueue_style( $this->plugin_name . '-backend-app', DATE_FORMATTER_PLUGIN_URL . 'build/js/backend.css', array( 'wp-components' ), $this->css_asset_file['version'], 'all' );
 
 	}
 
@@ -104,7 +111,19 @@ class Date_Formatter_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts( $hook ) {
+
+		// Ensure we're only loading our scripts on our custom admin page
+		if ( 'toplevel_page_date-formatter' !== $hook ) {
+			return;
+		}
+
+		// Enqueue React and ReactDOM
+		wp_enqueue_script( 'wp-element' );
+
+
+		// Enqueue WordPress' wp-api-fetch
+		wp_enqueue_script( 'wp-api-fetch' );
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -120,5 +139,81 @@ class Date_Formatter_Admin {
 
 		wp_enqueue_script( $this->plugin_name, DATE_FORMATTER_PLUGIN_URL . 'build/js/backend.js', $this->js_asset_file['dependencies'], $this->js_asset_file['version'], false );
 
+
+		// Localize the script with necessary data (e.g., nonce)
+		wp_localize_script(
+			$this->plugin_name,
+			'wpApiSettings',
+			array(
+				'nonce' => wp_create_nonce( 'wp_rest' ),
+			)
+		);
+	}
+
+	/**
+	 * Register fields.
+	 */
+	public function register_custom_option() {
+
+		register_setting(
+			DATE_FORMATTER_PLUGIN_BASENAME,
+			'your_show_formats',
+			array(
+				'type' 				=> 'boolean',
+				'description'		=> __( 'Show Formats', 'date-formatter' ),
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'show_in_rest'      => true,
+				'default'      		=> false,
+			)
+		);
+
+		register_setting(
+			DATE_FORMATTER_PLUGIN_BASENAME,
+			'your_date_format',
+			array(
+				'type' 				=> 'string',
+				'description'		=> __( 'Date Format', 'date-formatter' ),
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'show_in_rest'      => true,
+				'default'      		=> get_option( 'date_format' ),
+			)
+		);
+
+		register_setting(
+			DATE_FORMATTER_PLUGIN_BASENAME,
+			'your_time_format',
+			array(
+				'type' 				=> 'string',
+				'description' 		=> __( 'Time Format', 'date-formatter' ),
+				'sanitize_callback'	=> 'sanitize_text_field',
+				'show_in_rest'      => true,
+				'default'      		=> get_option( 'time_format' ),
+			)
+		);
+	}
+
+	/**
+	 * Add Settings link to plugins area.
+	 *
+	 * @since    1.0.0
+	 *
+	 * @param array  $links Links array in which we would prepend our link.
+	 * @param string $file  Current plugin basename.
+	 * @return array Processed links.
+	 */
+	public function plugin_action_links( $links, $file ) {
+
+		// Return normal links if not BuddyPress.
+		if ( DATE_FORMATTER_PLUGIN_BASENAME !== $file ) {
+			return $links;
+		}
+
+		// Add a few links to the existing links array.
+		return array_merge(
+			$links,
+			array(
+				'about'	=> sprintf( '<a href="%sadmin.php?page=%s">%s</a>', admin_url(), 'date-formatter', esc_html__( 'About', 'date-formatter' ) ),
+			)
+		);
 	}
 }
