@@ -5,7 +5,7 @@ Tags: buddyboss-platform, comments, date-formatting, activity-date
 Requires at least: 4.9.1
 Tested up to: 6.2.2
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ e.g.
 1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
 
 == Changelog ==
+
+= 1.0.3 =
+* Update readme File
 
 = 1.0.2 =
 * Update readme File
