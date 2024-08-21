@@ -198,7 +198,7 @@ final class Date_Formatter {
 		 * For Plugin to check if BuddyBoss Platform plugin is active or not
 		 */
 		if ( class_exists( 'WPBoilerplate_BuddyBoss_Platform_Dependency' ) ) {
-			new WPBoilerplate_BuddyBoss_Platform_Dependency( COPY_LINK_FOR_BUDDYBOSS_PLUGIN_NAME_SLUG, COPY_LINK_FOR_BUDDYBOSS_PLUGIN_FILE, array( 'activity' ) );
+			new WPBoilerplate_BuddyBoss_Platform_Dependency( DATE_FORMATTER_PLUGIN_NAME_SLUG, DATE_FORMATTER_PLUGIN_FILE, array( 'activity' ) );
 		}
 
 		/**
