@@ -307,10 +307,9 @@ final class Date_Formatter {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Date_Formatter_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Date_Formatter_Public();
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
+		$this->loader->add_action( 'bp_init', $plugin_public, 'load_code', 1000 );
 	}
 
 	/**

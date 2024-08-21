@@ -12,14 +12,14 @@ function App() {
 
     useEffect(() => {
         apiFetch({ path: '/wp/v2/settings' }).then((response) => {
-            if (response['your_show_formats'] !== undefined) {
-                setShowFormats(response['your_show_formats']);
+            if (response['date_formatter_show_formats'] !== undefined) {
+                setShowFormats(response['date_formatter_show_formats']);
             }
-            if (response['your_date_format']) {
-                setDateFormat(response['your_date_format']);
+            if (response['date_formatter_date_format']) {
+                setDateFormat(response['date_formatter_date_format']);
             }
-            if (response['your_time_format']) {
-                setTimeFormat(response['your_time_format']);
+            if (response['date_formatter_time_format']) {
+                setTimeFormat(response['date_formatter_time_format']);
             }
         }).catch((error) => {
             console.error('Error fetching settings:', error);
@@ -31,9 +31,9 @@ function App() {
             path: '/wp/v2/settings',
             method: 'POST',
             data: {
-                'your_show_formats': showFormats,
-                'your_date_format': dateFormat,
-                'your_time_format': timeFormat,
+                'date_formatter_show_formats': showFormats,
+                'date_formatter_date_format': dateFormat,
+                'date_formatter_time_format': timeFormat,
             },
         }).then((response) => {
             console.log('Settings saved', response);

@@ -157,7 +157,7 @@ class Date_Formatter_Admin {
 
 		register_setting(
 			DATE_FORMATTER_PLUGIN_BASENAME,
-			'your_show_formats',
+			'date_formatter_show_formats',
 			array(
 				'type' 				=> 'boolean',
 				'description'		=> __( 'Show Formats', 'date-formatter' ),
@@ -169,7 +169,7 @@ class Date_Formatter_Admin {
 
 		register_setting(
 			DATE_FORMATTER_PLUGIN_BASENAME,
-			'your_date_format',
+			'date_formatter_date_format',
 			array(
 				'type' 				=> 'string',
 				'description'		=> __( 'Date Format', 'date-formatter' ),
@@ -181,7 +181,7 @@ class Date_Formatter_Admin {
 
 		register_setting(
 			DATE_FORMATTER_PLUGIN_BASENAME,
-			'your_time_format',
+			'date_formatter_time_format',
 			array(
 				'type' 				=> 'string',
 				'description' 		=> __( 'Time Format', 'date-formatter' ),
