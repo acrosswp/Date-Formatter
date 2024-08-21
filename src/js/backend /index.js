@@ -1,7 +1,5 @@
 import { createRoot } from '@wordpress/element';
 
-import './backend.scss';
-
 import App from './app';
 
 window.addEventListener('load', function () {
